@@ -56,6 +56,7 @@ export class TestRail {
         } 
       })
       .then(response => {
+          console.log(response);
         return response.data.cases.map(item =>item.id)
       })
       .catch(error => console.error(error))
@@ -66,6 +67,9 @@ export class TestRail {
     if (this.options.includeAllInTestRun === false){
       this.includeAll = false;
       this.caseIds = this.getCases(suiteId);
+        this.runId =this.options.runId;
+        TestRailCache.store('runId', this.options.runId);
+        return;
     }
     this.makeSync(
       axios({

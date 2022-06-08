@@ -9,6 +9,7 @@ export interface TestRailOptions {
   groupId?: number;
   filter?: string;
   typeId?: number;
+  runId?: number;
 }
 
 export enum Status {
