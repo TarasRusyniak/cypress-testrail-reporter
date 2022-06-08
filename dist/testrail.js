@@ -113,6 +113,9 @@ var TestRail = /** @class */ (function () {
         if (this.options.includeAllInTestRun === false) {
             this.includeAll = false;
             this.caseIds = this.getCases(suiteId);
+            this.runId =this.options.runId;
+            TestRailCache.store('runId', this.options.runId);
+            return;
         }
         this.makeSync(axios({
             method: 'post',
